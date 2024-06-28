@@ -5,7 +5,7 @@ import "./index.css";
 import { GlobalStyle } from "./stylesheets/Globalstyle.js";
 import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
-import { global } from "./stylesheets/GlobalColors.js";
+import { theme } from "./stylesheets/GlobalColors.js";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistor, store } from "./redux/store.js";
 import { Provider } from "react-redux";
@@ -13,7 +13,7 @@ import { Provider } from "react-redux";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Provider store={store}>
-      <ThemeProvider theme={global}>
+      <ThemeProvider theme={theme}>
         <PersistGate loading={null} persistor={persistor}>
           <BrowserRouter basename="/admin-dashboard">
             <App />

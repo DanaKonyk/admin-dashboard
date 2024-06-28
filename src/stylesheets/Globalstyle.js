@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import { global } from "./GlobalColors";
+import { theme } from "./GlobalColors";
 import "modern-normalize";
 import "../index.css";
 
@@ -12,8 +12,8 @@ export const GlobalStyle = createGlobalStyle`
   
   html,
   body {
-    background: ${global.colors.secondary};
-    color: ${global.colors.main};
+    background: ${theme.colors.secondary};
+    color: ${theme.colors.main};
     font-family: "Inter", sans-serif;
     font-size: 16px;
     font-weight: 500;
@@ -76,7 +76,7 @@ export const GlobalStyle = createGlobalStyle`
   input:-webkit-autofill,
   input:-webkit-autofill:hover, 
   input:-webkit-autofill:focus {
-  -webkit-box-shadow: 0 0 0px 1000px ${global.colors.light} inset;
-  -webkit-text-fill-color: ${global.colors.main};
+  -webkit-box-shadow: 0 0 0px 1000px ${theme.colors.light} inset;
+  -webkit-text-fill-color: ${theme.colors.main};
   }
 `;
