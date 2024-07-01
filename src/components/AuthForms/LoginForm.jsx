@@ -1,10 +1,11 @@
 import { useForm } from "react-hook-form";
 import logo from "../../images/logo.png";
 import pill from "../../images/white-pill.png";
-import { loginSchema } from "../../services/validationSchemas";
+import { authSchema } from "../../services/validationSchemas";
 import { yupResolver } from "@hookform/resolvers/yup";
 import sprite from "../../images/sprite.svg";
 import { useState } from "react";
+import { Notify } from "notiflix";
 import {
   BgImg,
   BtnSubmit,
@@ -17,14 +18,34 @@ import {
   StyledLink,
   TitleWrap,
 } from "./AuthForms.styled";
+import { useDispatch } from "react-redux";
+import { logIn } from "../../redux/auth/operations";
 
 const LoginForm = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const dispatch = useDispatch();
 
   const {
     reset,
+    register,
+    handleSubmit,
     formState: { errors },
-  } = useForm({ resolver: yupResolver(loginSchema), mode: "onBlur" });
+  } = useForm({ resolver: yupResolver(authSchema), mode: "onBlur" });
+
+  const onSubmit = async (data) => {
+    try {
+      await dispatch(logIn(data)).unwrap();
+      reset();
+    } catch (error) {
+      if (error) {
+        Notify.failure("Wrong email or password. Please try again");
+      }
+    }
+  };
+
+  const toggleShowPassword = () => {
+    setShowPassword((prevState) => !prevState);
+  };
 
   return (
     <>
@@ -40,15 +61,24 @@ const LoginForm = () => {
           </h1>
           <img src={pill} alt="pill" />
         </TitleWrap>
-        <Form>
+        <Form onSubmit={handleSubmit(onSubmit)}>
           <InputWrap>
-            <Input placeholder="Email address" />
+            <Input
+              {...register("email", { autoComplete: "off" })}
+              placeholder="Email address"
+              style={{ borderColor: errors.email ? "#E85050" : "#59b17a" }}
+            />
             <p>{errors.email?.message}</p>
           </InputWrap>
           <InputWrap>
-            <Input placeholder="Password" />
-            <p>{errors.email?.message}</p>
-            <EyeBtn>
+            <Input
+              {...register("password", { autoComplete: "off" })}
+              type={showPassword ? "text" : "password"}
+              placeholder="Password"
+              style={{ borderColor: errors.password ? "#E85050" : "#59b17a" }}
+            />
+            <p>{errors.password?.message}</p>
+            <EyeBtn type="button" onClick={() => toggleShowPassword()}>
               <svg width="18" height="18" stroke="#1D1E21" fill="none">
                 <use
                   href={

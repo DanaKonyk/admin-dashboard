@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { clearToken, instance, setToken } from "../../services/api";
 
-export const register = createAsyncThunk(
+export const signUp = createAsyncThunk(
   "auth/register",
   async (value, { rejectWithValue }) => {
     try {
