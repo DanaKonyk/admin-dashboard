@@ -1,6 +1,6 @@
 export const selectDashboard = (state) => state.admin.dashboard;
 
-export const selectOrders = (state) => state.admin.orders;
+export const selectOrders = (state) => state.admin.orders.result;
 
 export const selectProducts = (state) => state.admin.products;
 

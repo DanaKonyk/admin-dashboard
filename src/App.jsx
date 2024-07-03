@@ -13,6 +13,7 @@ const RegistrationPage = lazy(() =>
 );
 const LoginPage = lazy(() => import("./pages/LoginPage/LoginPage"));
 const DashboardPage = lazy(() => import("./pages/DashboardPage/DashboardPage"));
+const OrdersPage = lazy(() => import("./pages/OrdersPage/OrdersPage"));
 
 function App() {
   const { isRefreshing } = useAuth();
@@ -50,6 +51,12 @@ function App() {
             path="/dashboard"
             element={
               <PrivateRoute redirectTo="/login" component={<DashboardPage />} />
+            }
+          />
+          <Route
+            path="/orders"
+            element={
+              <PrivateRoute redirectTo="/login" component={<OrdersPage />} />
             }
           />
         </Route>

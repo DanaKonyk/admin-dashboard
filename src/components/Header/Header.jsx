@@ -27,7 +27,6 @@ const Header = () => {
 
   const toggleMenu = () => {
     setIsMenuOpen((prevState) => !prevState);
-    console.log(isMenuOpen);
     isMenuOpen
       ? (document.body.style.overflowY = "auto")
       : (document.body.style.overflowY = "hidden");

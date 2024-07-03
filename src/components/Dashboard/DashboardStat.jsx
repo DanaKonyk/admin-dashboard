@@ -7,7 +7,7 @@ import { getDashboard } from "../../redux/admin/operations";
 
 const DashboardStat = () => {
   const dispatch = useDispatch();
-  const { allSCustomers, allSProducts, allSuppliers } =
+  const { allCustomers, allProducts, allSuppliers } =
     useSelector(selectDashboard);
 
   useEffect(() => {
@@ -22,7 +22,7 @@ const DashboardStat = () => {
             <use href={`${sprite}#icon-db`} />
           </svg>
           <Title>All Products</Title>
-          <Amount>{allSProducts}</Amount>
+          <Amount>{allProducts}</Amount>
         </StatWrap>
       </li>
       <li>
@@ -40,7 +40,7 @@ const DashboardStat = () => {
             <use href={`${sprite}#icon-users`} />
           </svg>
           <Title>All Customers</Title>
-          <Amount>{allSCustomers}</Amount>
+          <Amount>{allCustomers}</Amount>
         </StatWrap>
       </li>
     </List>

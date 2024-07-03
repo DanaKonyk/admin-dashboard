@@ -130,8 +130,10 @@ export const Table = styled.table`
 
   img {
     inline-size: auto;
+    border-radius: 100%;
     block-size: 24px;
     @media (width > 767px) {
+      inline-size: 36px;
       block-size: 36px;
     }
   }
@@ -163,6 +165,7 @@ export const FirstRow = styled.td`
     padding-block: 14px;
     display: flex;
     align-items: center;
+    gap: 8px;
   }
 `;
 

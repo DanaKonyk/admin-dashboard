@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectDashboard } from "../../redux/admin/selectors";
 import { getDashboard } from "../../redux/admin/operations";
 import { useEffect } from "react";
-import userImg from "../../images/user-img.webp";
+import userImg from "../../images/no-user-image.webp";
 import {
   FirstRow,
   Label,

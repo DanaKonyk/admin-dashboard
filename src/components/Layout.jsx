@@ -6,7 +6,12 @@ import styled from "styled-components";
 
 const Layout = () => {
   const location = useLocation();
-  const showHeader = location.pathname === "/dashboard";
+  const showHeader =
+    location.pathname === "/dashboard" ||
+    location.pathname === "/orders" ||
+    location.pathname === "/products" ||
+    location.pathname === "/customers" ||
+    location.pathname === "/suppliers";
 
   return (
     <Box>
