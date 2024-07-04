@@ -31,8 +31,6 @@ const CustomersTable = () => {
     dispatch(getCustomers({ page }));
   }, [dispatch, page]);
 
-  console.log(customers[0].photo);
-
   return (
     <>
       <TableWrap>
