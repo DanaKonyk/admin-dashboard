@@ -1,20 +1,20 @@
-import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
 import SideBar from "../../components/Header/SideBar";
 import { Wrap } from "../DashboardPage/DashboardPage";
+import { useForm } from "react-hook-form";
 import sprite from "../../images/sprite.svg";
-import { useDispatch } from "react-redux";
-import { getOrders } from "../../redux/admin/operations";
+import { getCustomers } from "../../redux/admin/operations";
 import { FilterBtn, Form, Input } from "../../components/Orders/Orders.styled";
-import OrdersTable from "../../components/Orders/OrdersTable";
 
-const OrdersPage = () => {
+const CustomersPage = () => {
   const screenWidth = window.innerWidth;
   const dispatch = useDispatch();
 
   const { reset, register, handleSubmit } = useForm({ mode: "onBlur" });
 
   const onSubmit = (data) => {
-    dispatch(getOrders(data));
+    dispatch(getCustomers(data));
+    console.log(data);
     reset();
   };
 
@@ -33,9 +33,8 @@ const OrdersPage = () => {
           </svg>
         </FilterBtn>
       </Form>
-      <OrdersTable />
     </Wrap>
   );
 };
 
-export default OrdersPage;
+export default CustomersPage;
