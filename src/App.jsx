@@ -14,6 +14,8 @@ const RegistrationPage = lazy(() =>
 const LoginPage = lazy(() => import("./pages/LoginPage/LoginPage"));
 const DashboardPage = lazy(() => import("./pages/DashboardPage/DashboardPage"));
 const OrdersPage = lazy(() => import("./pages/OrdersPage/OrdersPage"));
+const ProductsPage = lazy(() => import("./pages/ProductsPage/ProductsPage"));
+const SuppliersPage = lazy(() => import("./pages/SuppliersPage/SuppliersPage"));
 const CustomersPage = lazy(() => import("./pages/CustomersPage/CustomersPage"));
 
 function App() {
@@ -58,6 +60,18 @@ function App() {
             path="/orders"
             element={
               <PrivateRoute redirectTo="/login" component={<OrdersPage />} />
+            }
+          />
+          <Route
+            path="/products"
+            element={
+              <PrivateRoute redirectTo="/login" component={<ProductsPage />} />
+            }
+          />
+          <Route
+            path="/suppliers"
+            element={
+              <PrivateRoute redirectTo="/login" component={<SuppliersPage />} />
             }
           />
           <Route

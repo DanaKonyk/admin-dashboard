@@ -9,6 +9,7 @@ import {
   getProducts,
   getSuppliers,
   updateProduct,
+  updateSupplier,
 } from "./operations";
 
 const initialState = {
@@ -68,7 +69,7 @@ export const adminSlice = createSlice({
         state.isLoading = false;
         state.suppliers.result = [...state.suppliers.result, action.payload];
       })
-      .addCase(updateProduct.fulfilled, (state, action) => {
+      .addCase(updateSupplier.fulfilled, (state, action) => {
         state.isLoading = false;
         const index = state.suppliers.result.findIndex(
           (item) => item._id === action.payload._id
