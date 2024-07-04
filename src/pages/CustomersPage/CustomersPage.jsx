@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import sprite from "../../images/sprite.svg";
 import { getCustomers } from "../../redux/admin/operations";
 import { FilterBtn, Form, Input } from "../../components/Orders/Orders.styled";
+import CustomersTable from "../../components/Customers/CustomersTable";
 
 const CustomersPage = () => {
   const screenWidth = window.innerWidth;
@@ -14,7 +15,6 @@ const CustomersPage = () => {
 
   const onSubmit = (data) => {
     dispatch(getCustomers(data));
-    console.log(data);
     reset();
   };
 
@@ -33,6 +33,7 @@ const CustomersPage = () => {
           </svg>
         </FilterBtn>
       </Form>
+      <CustomersTable />
     </Wrap>
   );
 };
