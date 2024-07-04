@@ -1,11 +1,11 @@
-import{p as n,t as i,h as e}from"./index-z6XQMYII.js";const t=n.form`
+import{p as n,t as i,h as o}from"./index-rfceDLnR.js";const l=n.form`
   margin-block-start: 40px;
   display: flex;
   gap: 8px;
   @media (width > 1439px) {
     margin-inline-start: 80px;
   }
-`,a=n.input`
+`,s=n.input`
   position: relative;
   padding: 13px 18px;
   inline-size: 100%;
@@ -28,7 +28,7 @@ import{p as n,t as i,h as e}from"./index-z6XQMYII.js";const t=n.form`
     font-weight: 400;
     line-height: 1.5;
   }
-`,l=n.button`
+`,c=n.button`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -51,7 +51,7 @@ import{p as n,t as i,h as e}from"./index-z6XQMYII.js";const t=n.form`
 
   flex-direction: row-reverse;
   gap: 10px;
-`,s=n.div`
+`,p=n.div`
   margin-block: 20px 10px;
   max-inline-size: 335px;
   overflow-y: hidden;
@@ -64,7 +64,7 @@ import{p as n,t as i,h as e}from"./index-z6XQMYII.js";const t=n.form`
     margin-inline-start: 80px;
     max-inline-size: 100%;
   }
-`,c=n.table`
+`,d=n.table`
   font-size: 12px;
   font-weight: 500;
   line-height: 1.166;
@@ -97,7 +97,7 @@ import{p as n,t as i,h as e}from"./index-z6XQMYII.js";const t=n.form`
       block-size: 36px;
     }
   }
-`,p=n.div`
+`,x=n.div`
   inline-size: 92px;
   block-size: 25px;
 
@@ -109,45 +109,45 @@ import{p as n,t as i,h as e}from"./index-z6XQMYII.js";const t=n.form`
   font-size: 12px;
   line-height: 1.25;
 
-  ${({$variant:o})=>o==="Completed"&&e`
+  ${({$variant:e})=>e==="Completed"&&o`
       color: ${i.colors.primary};
       background: #59b17a19;
     `};
-  ${({$variant:o})=>o==="Confirmed"&&e`
+  ${({$variant:e})=>e==="Confirmed"&&o`
       color: ${i.colors.confirmed};
       background: #8059e419;
     `};
-  ${({$variant:o})=>o==="Pending"&&e`
+  ${({$variant:e})=>e==="Pending"&&o`
       color: ${i.colors.pending};
       background: #f7904219;
     `};
-  ${({$variant:o})=>o==="Cancelled"&&e`
+  ${({$variant:e})=>e==="Cancelled"&&o`
       color: ${i.colors.accent};
       background: #e8505019;
     `};
-  ${({$variant:o})=>o==="Processing"&&e`
+  ${({$variant:e})=>e==="Processing"&&o`
       color: ${i.colors.processing};
       background: #70a6e819;
     `};
-  ${({$variant:o})=>o==="Shipped"&&e`
+  ${({$variant:e})=>e==="Shipped"&&o`
       color: #00ffff;
       background: #70e8e218;
     `};
-  ${({$variant:o})=>o==="Delivered"&&e`
+  ${({$variant:e})=>e==="Delivered"&&o`
       color: #ffff00;
       background: #e8d27017;
     `};
-  ${({$variant:o})=>o==="active"||o==="Active"&&e`
+  ${({$variant:e})=>e==="active"||e==="Active"&&o`
         inline-size: 89px;
         color: ${i.colors.primary};
         background: #59b17a19;
       `};
-  ${({$variant:o})=>o==="deactive"||o==="Deactive"&&e`
+  ${({$variant:e})=>e==="deactive"||e==="Deactive"&&o`
         inline-size: 89px;
         color: ${i.colors.accent};
         background: #e8505019;
       `};
-`,d=n.div`
+`,g=n.div`
   padding-block: 20px;
   display: flex;
   justify-content: center;
@@ -168,7 +168,7 @@ import{p as n,t as i,h as e}from"./index-z6XQMYII.js";const t=n.form`
     margin-inline-start: 80px;
     gap: 8px;
   }
-`,x=n.button`
+`,m=n.button`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -190,4 +190,4 @@ import{p as n,t as i,h as e}from"./index-z6XQMYII.js";const t=n.form`
     line-height: 1.5;
     padding: 5px 10px;
   }
-`;export{d as B,t as F,a as I,x as P,p as S,s as T,c as a,l as b};
+`,h=e=>{const r=new Date(e),t={year:"numeric",month:"long",day:"numeric"};return r.toLocaleDateString("en-US",t)};export{g as B,l as F,s as I,m as P,x as S,p as T,d as a,c as b,h as g};
