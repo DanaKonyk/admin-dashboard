@@ -3,7 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectOrders } from "../../redux/admin/selectors";
 import { getOrders } from "../../redux/admin/operations";
 import userImg from "../../images/no-user-image.webp";
-import { Status, Table, TableWrap } from "./Orders.styled";
+import {
+  BtnPageWrap,
+  PageBtn,
+  Status,
+  Table,
+  TableWrap,
+} from "./Orders.styled";
 import {
   FirstRow,
   TableSubTitle,
@@ -14,9 +20,13 @@ import { getDate } from "../../services/getDate";
 const OrdersTable = () => {
   const [page, setPage] = useState(1);
   const dispatch = useDispatch();
-  const orders = useSelector(selectOrders);
+  const ordersData = useSelector(selectOrders);
+  const orders = ordersData.result;
 
-  console.log(orders);
+  const totalPages = Math.ceil(ordersData.total / 5);
+  const handleForward = () =>
+    page === totalPages ? undefined : setPage(page + 1);
+  const handleBack = () => (page === 1 ? undefined : setPage(page - 1));
 
   useEffect(() => {
     dispatch(getOrders({ page }));
@@ -61,6 +71,25 @@ const OrdersTable = () => {
           </tbody>
         </Table>
       </TableWrap>
+      <BtnPageWrap>
+        <PageBtn
+          onClick={handleBack}
+          type="button"
+          disabled={page === 1 ? true : false}
+        >
+          Back
+        </PageBtn>
+        <p>
+          <span>{page}</span> / {totalPages}
+        </p>
+        <PageBtn
+          onClick={handleForward}
+          type="button"
+          disabled={page === totalPages ? true : false}
+        >
+          Next
+        </PageBtn>
+      </BtnPageWrap>
     </>
   );
 };
