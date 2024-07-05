@@ -1,1 +1,0 @@
-import{j as r,S as e}from"./index-CSC4Jl1N.js";import{W as t}from"./DashboardPage-CUR7biHk.js";const o=()=>{const s=window.innerWidth;return r.jsx(t,{children:s>1439&&r.jsx(e,{})})};export{o as default};
