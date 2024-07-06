@@ -12,6 +12,8 @@ import {
   ProductsWrap,
 } from "../../components/Products/Products.styled";
 import ProductsTable from "../../components/Products/ProductsTable";
+import ModalBody from "../../components/Modal/Modal";
+import AddProduct from "../../components/ModalContent/AddProduct";
 
 const ProductsPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -63,6 +65,11 @@ const ProductsPage = () => {
         </ProductsWrap>
         <ProductsTable />
       </Wrap>
+      {isModalOpen && (
+        <ModalBody isOpen={isModalOpen} onRequestClose={closeModal}>
+          <AddProduct onRequestClose={closeModal} />
+        </ModalBody>
+      )}
     </>
   );
 };

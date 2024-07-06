@@ -17,3 +17,27 @@ export const authSchema = yup.object({
     .trim()
     .required("Password is required"),
 });
+
+export const addProductSchema = yup.object({
+  name: yup.string().trim().required("Name is required"),
+  category: yup
+    .string()
+    .oneOf(
+      [
+        "Medicine",
+        "Head",
+        "Hand",
+        "Dental Care",
+        "Skin Care",
+        "Eye Care",
+        "Vitamins & Supplements",
+        "Orthopedic Products",
+        "Baby Care",
+      ],
+      "Invalid Type"
+    )
+    .required("Category is required"),
+  suppliers: yup.string().trim().required("Suppliers is required"),
+  stock: yup.number().required("Stock is required"),
+  price: yup.number().required("Price is required"),
+});
