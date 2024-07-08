@@ -21,6 +21,7 @@ const CustomersPage = lazy(() => import("./pages/CustomersPage/CustomersPage"));
 function App() {
   const { isRefreshing } = useAuth();
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
@@ -53,31 +54,43 @@ function App() {
           <Route
             path="/dashboard"
             element={
-              <PrivateRoute redirectTo="/login" component={<DashboardPage />} />
+              <PrivateRoute
+                redirectTo="/dashboard"
+                component={<DashboardPage />}
+              />
             }
           />
           <Route
             path="/orders"
             element={
-              <PrivateRoute redirectTo="/login" component={<OrdersPage />} />
+              <PrivateRoute redirectTo="/orders" component={<OrdersPage />} />
             }
           />
           <Route
             path="/products"
             element={
-              <PrivateRoute redirectTo="/login" component={<ProductsPage />} />
+              <PrivateRoute
+                redirectTo="/products"
+                component={<ProductsPage />}
+              />
             }
           />
           <Route
             path="/suppliers"
             element={
-              <PrivateRoute redirectTo="/login" component={<SuppliersPage />} />
+              <PrivateRoute
+                redirectTo="/suppliers"
+                component={<SuppliersPage />}
+              />
             }
           />
           <Route
             path="/customers"
             element={
-              <PrivateRoute redirectTo="/login" component={<CustomersPage />} />
+              <PrivateRoute
+                redirectTo="/customers"
+                component={<CustomersPage />}
+              />
             }
           />
         </Route>
