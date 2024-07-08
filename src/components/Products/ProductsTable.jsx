@@ -16,8 +16,12 @@ import {
   TableTitle,
 } from "../Dashboard/Dashboard.styled";
 import { BtnModify, TableBtnWrap } from "./Products.styled";
+import ModalBody from "../Modal/Modal";
+import EditProduct from "../ModalContent/EditProduct";
 
 const ProductsTable = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedProduct, setselectedProduct] = useState(null);
   const [page, setPage] = useState(1);
   const dispatch = useDispatch();
   const productsData = useSelector(selectProducts);
@@ -31,6 +35,17 @@ const ProductsTable = () => {
   useEffect(() => {
     dispatch(getProducts({ page }));
   }, [dispatch, page]);
+
+  const openModal = (item) => {
+    setIsModalOpen(true);
+    setselectedProduct(item);
+    document.body.style.overflow = "hidden";
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    document.body.style.overflow = "";
+  };
 
   return (
     <>
@@ -65,7 +80,7 @@ const ProductsTable = () => {
                 <td>{product.price}</td>
                 <td>
                   <TableBtnWrap>
-                    <BtnModify type="button">
+                    <BtnModify type="button" onClick={() => openModal(product)}>
                       <svg>
                         <use href={`${sprite}#icon-edit`} />
                       </svg>
@@ -104,6 +119,11 @@ const ProductsTable = () => {
           Next
         </PageBtn>
       </BtnPageWrap>
+      {isModalOpen && (
+        <ModalBody isOpen={isModalOpen} onRequestClose={closeModal}>
+          <EditProduct onRequestClose={closeModal} product={selectedProduct} />
+        </ModalBody>
+      )}
     </>
   );
 };

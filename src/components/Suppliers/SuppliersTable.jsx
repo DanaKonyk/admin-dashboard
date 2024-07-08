@@ -18,8 +18,11 @@ import {
 } from "../Dashboard/Dashboard.styled";
 import { getDate } from "../../services/getDate";
 import { BtnSupEdit } from "./Suppliers.styled";
+import ModalBody from "../Modal/Modal";
+import EditSupplier from "../ModalContent/EditSupplier";
 
 const SuppliersTable = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [page, setPage] = useState(1);
   const dispatch = useDispatch();
   const suppliersData = useSelector(selectSuppliers);
@@ -33,6 +36,16 @@ const SuppliersTable = () => {
   useEffect(() => {
     dispatch(getSuppliers({ page }));
   }, [dispatch, page]);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+    document.body.style.overflow = "hidden";
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    document.body.style.overflow = "";
+  };
 
   return (
     <>
@@ -70,7 +83,7 @@ const SuppliersTable = () => {
                   <Status $variant={supplier.status}>{supplier.status}</Status>
                 </td>
                 <td>
-                  <BtnSupEdit type="button">
+                  <BtnSupEdit type="button" onClick={() => openModal(supplier)}>
                     <svg>
                       <use href={`${sprite}#icon-edit`} />
                     </svg>
@@ -101,6 +114,11 @@ const SuppliersTable = () => {
           Next
         </PageBtn>
       </BtnPageWrap>
+      {isModalOpen && (
+        <ModalBody isOpen={isModalOpen} onRequestClose={closeModal}>
+          <EditSupplier onRequestClose={closeModal} />
+        </ModalBody>
+      )}
     </>
   );
 };

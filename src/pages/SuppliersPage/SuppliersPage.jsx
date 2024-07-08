@@ -9,6 +9,8 @@ import { ProductsWrap } from "../../components/Products/Products.styled";
 import { FilterBtn, Form, Input } from "../../components/Orders/Orders.styled";
 import { BtnSupAdd } from "../../components/Suppliers/Suppliers.styled";
 import SuppliersTable from "../../components/Suppliers/SuppliersTable";
+import ModalBody from "../../components/Modal/Modal";
+import AddSupplier from "../../components/ModalContent/AddSupplier";
 
 const SuppliersPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -49,10 +51,15 @@ const SuppliersPage = () => {
         </Form>
 
         <BtnSupAdd type="button" onClick={openModal}>
-          <span>Add a new product</span>
+          <span>Add a new supplier</span>
         </BtnSupAdd>
       </ProductsWrap>
       <SuppliersTable />
+      {isModalOpen && (
+        <ModalBody isOpen={isModalOpen} onRequestClose={closeModal}>
+          <AddSupplier onRequestClose={closeModal} />
+        </ModalBody>
+      )}
     </Wrap>
   );
 };
