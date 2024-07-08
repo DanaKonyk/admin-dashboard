@@ -23,6 +23,7 @@ import EditSupplier from "../ModalContent/EditSupplier";
 
 const SuppliersTable = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedSupplier, setselectedSupplier] = useState(null);
   const [page, setPage] = useState(1);
   const dispatch = useDispatch();
   const suppliersData = useSelector(selectSuppliers);
@@ -37,8 +38,9 @@ const SuppliersTable = () => {
     dispatch(getSuppliers({ page }));
   }, [dispatch, page]);
 
-  const openModal = () => {
+  const openModal = (item) => {
     setIsModalOpen(true);
+    setselectedSupplier(item);
     document.body.style.overflow = "hidden";
   };
 
@@ -116,7 +118,10 @@ const SuppliersTable = () => {
       </BtnPageWrap>
       {isModalOpen && (
         <ModalBody isOpen={isModalOpen} onRequestClose={closeModal}>
-          <EditSupplier onRequestClose={closeModal} />
+          <EditSupplier
+            onRequestClose={closeModal}
+            supplier={selectedSupplier}
+          />
         </ModalBody>
       )}
     </>

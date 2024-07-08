@@ -53,10 +53,7 @@ const OrdersTable = () => {
             {orders?.map((order) => (
               <tr key={order._id}>
                 <FirstRow>
-                  <img
-                    src={order.photo ? order.photo : userImg}
-                    alt="customer"
-                  />
+                  <img src={userImg} alt="customer" />
                   <span>{order.name}</span>
                 </FirstRow>
                 <td>{order.address}</td>

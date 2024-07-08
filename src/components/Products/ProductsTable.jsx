@@ -8,7 +8,7 @@ import {
   Table,
   TableWrap,
 } from "../Orders/Orders.styled";
-import userImg from "../../images/no-user-image.webp";
+import productImg from "../../images/no-product.jpeg";
 import sprite from "../../images/sprite.svg";
 import {
   FirstRow,
@@ -47,6 +47,11 @@ const ProductsTable = () => {
     document.body.style.overflow = "";
   };
 
+  const handleDelete = (productId) => {
+    dispatch(deleteProduct(productId));
+    dispatch(getProducts({ page }));
+  };
+
   return (
     <>
       <TableWrap>
@@ -68,10 +73,7 @@ const ProductsTable = () => {
             {products?.map((product) => (
               <tr key={product._id}>
                 <FirstRow>
-                  <img
-                    src={product.photo ? product.photo : userImg}
-                    alt="customer"
-                  />
+                  <img src={productImg} alt="customer" />
                   <span>{product.name}</span>
                 </FirstRow>
                 <td>{product.category}</td>
@@ -87,7 +89,7 @@ const ProductsTable = () => {
                     </BtnModify>
                     <BtnModify
                       type="button"
-                      onClick={() => dispatch(deleteProduct(product._id))}
+                      onClick={() => handleDelete(product._id)}
                     >
                       <svg>
                         <use href={`${sprite}#icon-trash`} />

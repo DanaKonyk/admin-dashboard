@@ -57,7 +57,7 @@ export const adminSlice = createSlice({
       })
       .addCase(deleteProduct.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.products = state.products.result.filter(
+        state.products.result = state.products.result.filter(
           (item) => item._id !== action.payload
         );
       })

@@ -113,7 +113,7 @@ export const updateSupplier = createAsyncThunk(
   "admin/updSupplier",
   async ({ id, value }, { rejectWithValue }) => {
     try {
-      const { data } = await instance.post(`/supplier/${id}`, value);
+      const { data } = await instance.put(`/suppliers/${id}`, value);
       return data;
     } catch (error) {
       Notify.failure("Ooops, something went wrong. Please try again");

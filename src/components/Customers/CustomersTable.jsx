@@ -51,10 +51,7 @@ const CustomersTable = () => {
             {customers?.map((customer) => (
               <tr key={customer._id}>
                 <FirstRow>
-                  <img
-                    src={customer.photo ? customer.photo : userImg}
-                    alt="customer"
-                  />
+                  <img src={userImg} alt="customer" />
                   <span>{customer.name}</span>
                 </FirstRow>
                 <td>{customer.email}</td>
