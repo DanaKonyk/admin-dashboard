@@ -8,9 +8,6 @@ import { refreshUser } from "./redux/auth/operations";
 import { useAuth } from "./hooks/useAuth";
 import Loader from "./components/Loader";
 
-const RegistrationPage = lazy(() =>
-  import("./pages/RegistrationPage/RegistrationPage")
-);
 const LoginPage = lazy(() => import("./pages/LoginPage/LoginPage"));
 const DashboardPage = lazy(() => import("./pages/DashboardPage/DashboardPage"));
 const OrdersPage = lazy(() => import("./pages/OrdersPage/OrdersPage"));
@@ -33,15 +30,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Navigate replace to="/login" />} />
-          <Route
-            path="/register"
-            element={
-              <RestrictedRoute
-                redirectTo="/dashboard"
-                component={<RegistrationPage />}
-              />
-            }
-          />
           <Route
             path="/login"
             element={

@@ -17,6 +17,7 @@ const DashboardPage = () => {
 export const Wrap = styled.div`
   inline-size: 375px;
   padding-inline: 20px;
+  margin: 0 auto;
 
   @media (width > 767px) {
     inline-size: 768px;

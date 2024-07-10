@@ -4,7 +4,7 @@ import { selectCustomers } from "../../redux/admin/selectors";
 import { getCustomers } from "../../redux/admin/operations";
 import {
   BtnPageWrap,
-  PageBtn,
+  PageDot,
   Table,
   TableWrap,
 } from "../Orders/Orders.styled";
@@ -23,9 +23,6 @@ const CustomersTable = () => {
   const customers = customersData.result;
 
   const totalPages = Math.ceil(customersData.total / 5);
-  const handleForward = () =>
-    page === totalPages ? undefined : setPage(page + 1);
-  const handleBack = () => (page === 1 ? undefined : setPage(page - 1));
 
   useEffect(() => {
     dispatch(getCustomers({ page }));
@@ -63,25 +60,17 @@ const CustomersTable = () => {
           </tbody>
         </Table>
       </TableWrap>
-      <BtnPageWrap>
-        <PageBtn
-          onClick={handleBack}
-          type="button"
-          disabled={page === 1 ? true : false}
-        >
-          Back
-        </PageBtn>
-        <p>
-          <span>{page}</span> / {totalPages}
-        </p>
-        <PageBtn
-          onClick={handleForward}
-          type="button"
-          disabled={page === totalPages ? true : false}
-        >
-          Next
-        </PageBtn>
-      </BtnPageWrap>
+      {totalPages > 0 && (
+        <BtnPageWrap>
+          {[...Array(totalPages)].map((_, index) => (
+            <PageDot
+              key={index}
+              active={page === index + 1}
+              onClick={() => setPage(index + 1)}
+            />
+          ))}
+        </BtnPageWrap>
+      )}
     </>
   );
 };

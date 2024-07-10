@@ -6,7 +6,7 @@ This project aims to create an administrative dashboard for a medical store, pro
 
 ## Key Pages and Components
 
-### **Login/Register Page**
+### **Login Page**
 
 - **Purpose:** Allows the main administrator to sign in/log in with their credentials.
 

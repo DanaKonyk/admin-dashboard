@@ -182,49 +182,47 @@ export const Status = styled.div`
       `)};
 `;
 
+// export const BtnPageWrap = styled.div`
+//   padding-block: 20px;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   gap: 5px;
+
+//   button {
+//     transition: 1s;
+//     &:is(:hover, :focus) {
+//       scale: 1.1;
+//     }
+//   }
+
+//   span {
+//     color: ${theme.colors.primary};
+//   }
+//   @media (width > 1439px) {
+//     margin-inline-start: 80px;
+//     gap: 8px;
+//   }
+// `;
+
 export const BtnPageWrap = styled.div`
-  padding-block: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 5px;
-
-  button {
-    transition: 1s;
-    &:is(:hover, :focus) {
-      scale: 1.1;
-    }
-  }
-
-  span {
-    color: ${theme.colors.primary};
-  }
-  @media (width > 1439px) {
-    margin-inline-start: 80px;
-    gap: 8px;
-  }
+  margin-top: 20px;
 `;
 
-export const PageBtn = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px 20px;
-  border-radius: 55px;
-  border: 1px solid ${theme.colors.primary};
-  font-size: 14px;
-  line-height: 1.285;
-  color: ${theme.colors.primary};
-  background-color: ${theme.colors.light};
-  transition: background-color ${theme.transition}, color ${theme.transition};
+export const PageDot = styled.button`
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  border-radius: 50%;
+  border: none;
+  background-color: ${(props) =>
+    props.active ? theme.colors.primary : theme.colors.icon};
+  cursor: pointer;
 
   &:hover {
-    background-color: ${theme.colors.primaryHover};
-  }
-
-  @media screen and (max-width: 767px) {
-    font-size: 12px;
-    line-height: 1.5;
-    padding: 5px 10px;
+    background-color: green;
   }
 `;

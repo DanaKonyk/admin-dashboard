@@ -91,9 +91,6 @@ const LoginForm = () => {
             </EyeBtn>
           </InputWrap>
           <BtnSubmit type="submit">Log in</BtnSubmit>
-          <StyledLink to="/register">
-            Click here in order to register
-          </StyledLink>
         </Form>
         <BgImg />
       </MainWrap>

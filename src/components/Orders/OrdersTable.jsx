@@ -5,7 +5,7 @@ import { getOrders } from "../../redux/admin/operations";
 import userImg from "../../images/no-user-image.webp";
 import {
   BtnPageWrap,
-  PageBtn,
+  PageDot,
   Status,
   Table,
   TableWrap,
@@ -24,9 +24,8 @@ const OrdersTable = () => {
   const orders = ordersData.result;
 
   const totalPages = Math.ceil(ordersData.total / 5);
-  const handleForward = () =>
-    page === totalPages ? undefined : setPage(page + 1);
-  const handleBack = () => (page === 1 ? undefined : setPage(page - 1));
+
+  console.log(totalPages);
 
   useEffect(() => {
     dispatch(getOrders({ page }));
@@ -68,25 +67,17 @@ const OrdersTable = () => {
           </tbody>
         </Table>
       </TableWrap>
-      <BtnPageWrap>
-        <PageBtn
-          onClick={handleBack}
-          type="button"
-          disabled={page === 1 ? true : false}
-        >
-          Back
-        </PageBtn>
-        <p>
-          <span>{page}</span> / {totalPages}
-        </p>
-        <PageBtn
-          onClick={handleForward}
-          type="button"
-          disabled={page === totalPages ? true : false}
-        >
-          Next
-        </PageBtn>
-      </BtnPageWrap>
+      {totalPages > 0 && (
+        <BtnPageWrap>
+          {[...Array(totalPages)].map((_, index) => (
+            <PageDot
+              key={index}
+              active={page === index + 1}
+              onClick={() => setPage(index + 1)}
+            />
+          ))}
+        </BtnPageWrap>
+      )}
     </>
   );
 };

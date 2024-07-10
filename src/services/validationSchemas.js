@@ -38,8 +38,14 @@ export const addProductSchema = yup.object({
     )
     .required("Category is required"),
   suppliers: yup.string().trim().required("Suppliers is required"),
-  stock: yup.number().required("Stock is required"),
-  price: yup.number().required("Price is required"),
+  stock: yup
+    .number()
+    .typeError("Amount must be a number")
+    .required("Stock is required"),
+  price: yup
+    .number()
+    .typeError("Amount must be a number")
+    .required("Price is required"),
 });
 
 export const addSupplierSchema = yup.object({
@@ -47,7 +53,11 @@ export const addSupplierSchema = yup.object({
   address: yup.string().trim().required("Address is required"),
   suppliers: yup.string().trim().required("Company is required"),
   date: yup.string().trim().required("Date is required"),
-  amount: yup.string().trim().required("Amount is required"),
+  amount: yup
+    .number()
+    .typeError("Amount must be a number")
+    .positive("Amount must be a positive number")
+    .required("Amount is required"),
   status: yup
     .string()
     .oneOf(["Active", "Deactive"], "Invalid Type")
@@ -67,6 +77,6 @@ export const editSuplierSchema = yup.object({
   address: yup.string().trim(),
   suppliers: yup.string().trim(),
   date: yup.date(),
-  amount: yup.string(),
+  amount: yup.number(),
   status: yup.string(),
 });

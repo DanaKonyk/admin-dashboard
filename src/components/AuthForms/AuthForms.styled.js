@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { theme } from "../../stylesheets/GlobalColors";
 import lines from "../../images/lines.png";
-import { NavLink } from "react-router-dom";
 
 export const ImgWrap = styled.div`
   margin-block: 24px 148px;
@@ -164,18 +163,5 @@ export const BgImg = styled.div`
     top: 440px;
     left: 1120px;
     bottom: 0;
-  }
-`;
-
-export const StyledLink = styled(NavLink)`
-  margin-block-start: 20px;
-  font-size: 12px;
-  align-self: center;
-  text-decoration: underline;
-  transition: text-decoration ${theme.transition}, color ${theme.transition};
-
-  &:is(:hover, :focus) {
-    text-decoration: none;
-    color: ${theme.colors.primary};
   }
 `;

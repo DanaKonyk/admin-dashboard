@@ -3,6 +3,9 @@
     {
       "source": "/admin-dashboard/(.*)",
       "destination": "/admin-dashboard/index.html"
+    },
+    {
+      "rewrites": [{ "source": "/(.*)", "destination": "/" }]
     }
   ]
 }
