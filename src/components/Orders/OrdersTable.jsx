@@ -25,8 +25,6 @@ const OrdersTable = () => {
 
   const totalPages = Math.ceil(ordersData.total / 5);
 
-  console.log(totalPages);
-
   useEffect(() => {
     dispatch(getOrders({ page }));
   }, [dispatch, page]);
