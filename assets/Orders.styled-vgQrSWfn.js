@@ -1,4 +1,4 @@
-import{p as n,t as i,E as e}from"./index-DbsQrP8K.js";const t=n.form`
+import{p as n,t as e,D as o}from"./index-1KIQ4iwD.js";const t=n.form`
   margin-block-start: 40px;
   display: flex;
   gap: 8px;
@@ -9,9 +9,9 @@ import{p as n,t as i,E as e}from"./index-DbsQrP8K.js";const t=n.form`
   position: relative;
   padding: 13px 18px;
   inline-size: 100%;
-  border: 1px solid ${i.colors.alfablue};
+  border: 1px solid ${e.colors.alfablue};
   border-radius: 60px;
-  background: ${i.colors.light};
+  background: ${e.colors.light};
   outline: none;
 
   font-size: 12px;
@@ -23,7 +23,7 @@ import{p as n,t as i,E as e}from"./index-DbsQrP8K.js";const t=n.form`
   }
 
   &::placeholder {
-    color: ${i.colors.alfadarkblue};
+    color: ${e.colors.alfadarkblue};
     font-size: 12px;
     font-weight: 400;
     line-height: 1.5;
@@ -36,12 +36,12 @@ import{p as n,t as i,E as e}from"./index-DbsQrP8K.js";const t=n.form`
   border-radius: 60px;
   font-size: 14px;
   line-height: 1.285;
-  color: ${i.colors.light};
-  background-color: ${i.colors.primary};
-  transition: background-color ${i.transition}, color ${i.transition};
+  color: ${e.colors.light};
+  background-color: ${e.colors.primary};
+  transition: background-color ${e.transition}, color ${e.transition};
 
   &:hover {
-    background-color: ${i.colors.primaryHover};
+    background-color: ${e.colors.primaryHover};
   }
 
   @media screen and (max-width: 767px) {
@@ -51,7 +51,7 @@ import{p as n,t as i,E as e}from"./index-DbsQrP8K.js";const t=n.form`
 
   flex-direction: row-reverse;
   gap: 10px;
-`,s=n.div`
+`,c=n.div`
   margin-block: 20px 10px;
   max-inline-size: 335px;
   overflow-y: hidden;
@@ -64,7 +64,7 @@ import{p as n,t as i,E as e}from"./index-DbsQrP8K.js";const t=n.form`
     margin-inline-start: 80px;
     max-inline-size: 100%;
   }
-`,c=n.table`
+`,s=n.table`
   font-size: 12px;
   font-weight: 500;
   line-height: 1.166;
@@ -85,7 +85,7 @@ import{p as n,t as i,E as e}from"./index-DbsQrP8K.js";const t=n.form`
     padding-inline: 10px;
   }
   tbody {
-    background-color: ${i.colors.light};
+    background-color: ${e.colors.light};
   }
 
   img {
@@ -97,7 +97,7 @@ import{p as n,t as i,E as e}from"./index-DbsQrP8K.js";const t=n.form`
       block-size: 36px;
     }
   }
-`,p=n.div`
+`,d=n.div`
   inline-size: 92px;
   block-size: 25px;
 
@@ -109,85 +109,59 @@ import{p as n,t as i,E as e}from"./index-DbsQrP8K.js";const t=n.form`
   font-size: 12px;
   line-height: 1.25;
 
-  ${({$variant:o})=>o==="Completed"&&e`
-      color: ${i.colors.primary};
+  ${({$variant:i})=>i==="Completed"&&o`
+      color: ${e.colors.primary};
       background: #59b17a19;
     `};
-  ${({$variant:o})=>o==="Confirmed"&&e`
-      color: ${i.colors.confirmed};
+  ${({$variant:i})=>i==="Confirmed"&&o`
+      color: ${e.colors.confirmed};
       background: #8059e419;
     `};
-  ${({$variant:o})=>o==="Pending"&&e`
-      color: ${i.colors.pending};
+  ${({$variant:i})=>i==="Pending"&&o`
+      color: ${e.colors.pending};
       background: #f7904219;
     `};
-  ${({$variant:o})=>o==="Cancelled"&&e`
-      color: ${i.colors.accent};
+  ${({$variant:i})=>i==="Cancelled"&&o`
+      color: ${e.colors.accent};
       background: #e8505019;
     `};
-  ${({$variant:o})=>o==="Processing"&&e`
-      color: ${i.colors.processing};
+  ${({$variant:i})=>i==="Processing"&&o`
+      color: ${e.colors.processing};
       background: #70a6e819;
     `};
-  ${({$variant:o})=>o==="Shipped"&&e`
+  ${({$variant:i})=>i==="Shipped"&&o`
       color: #00ffff;
       background: #70e8e218;
     `};
-  ${({$variant:o})=>o==="Delivered"&&e`
+  ${({$variant:i})=>i==="Delivered"&&o`
       color: #ffff00;
       background: #e8d27017;
     `};
-  ${({$variant:o})=>o==="active"||o==="Active"&&e`
+  ${({$variant:i})=>i==="active"||i==="Active"&&o`
         inline-size: 89px;
-        color: ${i.colors.primary};
+        color: ${e.colors.primary};
         background: #59b17a19;
       `};
-  ${({$variant:o})=>o==="deactive"||o==="Deactive"&&e`
+  ${({$variant:i})=>i==="deactive"||i==="Deactive"&&o`
         inline-size: 89px;
-        color: ${i.colors.accent};
+        color: ${e.colors.accent};
         background: #e8505019;
       `};
-`,d=n.div`
-  padding-block: 20px;
+`,p=n.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 5px;
-
-  button {
-    transition: 1s;
-    &:is(:hover, :focus) {
-      scale: 1.1;
-    }
-  }
-
-  span {
-    color: ${i.colors.primary};
-  }
-  @media (width > 1439px) {
-    margin-inline-start: 80px;
-    gap: 8px;
-  }
+  margin-top: 20px;
 `,x=n.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px 20px;
-  border-radius: 55px;
-  border: 1px solid ${i.colors.primary};
-  font-size: 14px;
-  line-height: 1.285;
-  color: ${i.colors.primary};
-  background-color: ${i.colors.light};
-  transition: background-color ${i.transition}, color ${i.transition};
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  border-radius: 50%;
+  border: none;
+  background-color: ${i=>i.active?e.colors.primary:e.colors.icon};
+  cursor: pointer;
 
   &:hover {
-    background-color: ${i.colors.primaryHover};
+    background-color: green;
   }
-
-  @media screen and (max-width: 767px) {
-    font-size: 12px;
-    line-height: 1.5;
-    padding: 5px 10px;
-  }
-`;export{d as B,t as F,a as I,x as P,p as S,s as T,c as a,l as b};
+`;export{p as B,t as F,a as I,x as P,d as S,c as T,s as a,l as b};
